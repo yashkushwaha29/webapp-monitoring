@@ -1,17 +1,16 @@
-name: Deploy static website to Azure Web App
+name: Deploy static site to Azure
 
 on:
   push:
     branches:
-      - master
+      - main   # change to master if your repo uses master
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
